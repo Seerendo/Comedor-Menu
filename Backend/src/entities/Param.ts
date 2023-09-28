@@ -1,4 +1,4 @@
-import { Column, Entity, OneToOne, PrimaryColumn } from "typeorm";
+import { BaseEntity, Column, Entity, OneToOne, PrimaryColumn } from "typeorm";
 import { SpecData } from "./SpecData";
 
 export enum field {
@@ -11,7 +11,7 @@ export enum field {
 }
 
 @Entity()
-export class Param {
+export class Param extends BaseEntity {
   @OneToOne((type) => SpecData, (specData) => specData.frecuency)
   @PrimaryColumn({ nullable: false })
   paramId: string;
@@ -23,7 +23,7 @@ export class Param {
   search: string;
 
   @Column({
-    default: false
+    default: false,
   })
   cuali: boolean;
 

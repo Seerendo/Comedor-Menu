@@ -1,10 +1,17 @@
-import { Column, Entity, JoinColumn, OneToOne, PrimaryColumn } from "typeorm";
+import {
+  BaseEntity,
+  Column,
+  Entity,
+  JoinColumn,
+  OneToOne,
+  PrimaryColumn,
+} from "typeorm";
 import { Frecuency } from "./Frecuency";
 import { Param } from "./Param";
 import { Process } from "./Process";
 
 @Entity()
-export class SpecData {
+export class SpecData extends BaseEntity {
   @PrimaryColumn()
   id: string;
 

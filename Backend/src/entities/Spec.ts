@@ -1,4 +1,11 @@
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from "typeorm";
+import {
+  BaseEntity,
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryColumn,
+} from "typeorm";
 import { User } from "./User";
 
 export enum Status {
@@ -18,7 +25,7 @@ export enum specType {
 }
 
 @Entity()
-export class Spec {
+export class Spec extends BaseEntity {
   @PrimaryColumn({ nullable: false })
   specId: string;
 
@@ -36,11 +43,11 @@ export class Spec {
     type: "enum",
     enum: specType,
     default: specType.SIN_ESPECIFICACION,
-    nullable: false
+    nullable: false,
   })
   specType: specType;
 
   @ManyToOne((type) => User, (user) => user.spec)
-  @JoinColumn({name: "userId",})
+  @JoinColumn({ name: "userId" })
   user: User;
 }

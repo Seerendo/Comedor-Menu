@@ -1,8 +1,8 @@
-import { Column, Entity, OneToMany, PrimaryColumn } from "typeorm";
+import { BaseEntity, Column, Entity, OneToMany, PrimaryColumn } from "typeorm";
 import { Spec } from "./Spec";
 
 @Entity()
-export class User {
+export class User extends BaseEntity {
   @PrimaryColumn({ nullable: false })
   userId: number;
 

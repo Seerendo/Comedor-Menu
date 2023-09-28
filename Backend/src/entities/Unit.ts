@@ -1,7 +1,7 @@
-import { Column, Entity, PrimaryColumn } from "typeorm";
+import { BaseEntity, Column, Entity, PrimaryColumn } from "typeorm";
 
 @Entity()
-export class Unit {
+export class Unit extends BaseEntity {
   @PrimaryColumn({ nullable: false })
   unitId: string;
 
